@@ -1,0 +1,130 @@
+<div class="notification is-success is-dark" [class.hidden]="!isSavingSuccess">
+  <button class="delete" (click)="isSavingSuccess = false;"></button>
+  {{ story.title }} successfully saved.
+</div>
+
+<div class="notification is-info is-dark" [class.hidden]="!isExportSuccess">
+  <button class="delete" (click)="isExportSuccess = false;"></button>
+  {{ story.title }} copied to clipboard.
+</div>
+
+<div class="field is-grouped main-controls" style="font-family: 'Bangers';">
+  <div class="control">
+    <button type="submit" class="button is-info" (click)="save()" [disabled]="!isValid()">Save</button>
+  </div>
+  <div class="control">
+    <button type="submit" class="button is-danger" (click)="delete()" [disabled]="!canDelete()">Delete</button>
+  </div>
+  <div class="control">
+    <button class="button is-link is-dark" (click)="export()" [disabled]="!canDelete()">Export Data</button>
+  </div>
+  <div class="control">
+    <button class="button is-link is-light is-small" (click)="cancel()">Cancel</button>
+  </div>
+</div>
+
+<div class="box">
+  <div class="field-body">
+    <div class="field">
+      <label class="label">Title*</label>
+      <div class="control">
+        <input required class="input" [class.is-success]="story.title" type="text" placeholder="An awesome title for your story or series" 
+        [(ngModel)]="story.title">
+      </div>
+    </div>
+    
+    <div class="field">
+      <label class="label">Author*</label>
+      <div class="control">
+        <input required class="input" [class.is-success]="story.author" type="text" placeholder="Your writer name" 
+        [(ngModel)]="story.author">
+      </div>
+    </div>
+  </div>
+
+  <div class="field-body mt-2">
+    <div class="field">
+      <label class="label">Subtitle</label>
+      <div class="control">
+        <input required class="input" [class.is-success]="story.subtitle" type="text" placeholder="A subtitle or an episode title" 
+        [(ngModel)]="story.subtitle">
+      </div>
+    </div>
+
+    <div class="field">
+      <label class="label">Cover URL*</label>
+      <div class="control">
+        <input required class="input" [class.is-success]="story.cover" type="text" placeholder="Image must be 3 x 2 in in size" 
+        [(ngModel)]="story.cover">
+      </div>
+    </div>
+  </div>
+
+  <div class="field-body mt-2">
+    <div class="field">
+      <label class="label">Casts</label>
+      <div class="control">
+        <input required class="input" [class.is-success]="story.casts.length > 0" type="text" placeholder="e.g. 5123 2213 12 424 2314" 
+        [(ngModel)]="story.casts">
+      </div>
+    </div>
+    
+    <div class="field">
+      <label class="label">Tags</label>
+      <div class="control">
+        <input required class="input" [class.is-success]="story.tags.length > 0" type="text" placeholder="e.g. comedy action mystery" 
+        [(ngModel)]="story.tags">
+      </div>
+    </div>
+  </div>
+
+  <div class="field mt-2">
+    <label class="label">Screenplay</label>
+    <div class="field is-grouped screenplay-controls">
+      <div class="control">
+        <button class="button is-dark is-small" (click)="insert('template')">Load Template</button>
+      </div>
+      <div class="control">
+        <button class="button is-info is-small" (click)="insert('char')">+Junky</button>
+      </div>
+      <div class="control">
+        <button class="button is-info is-small" (click)="insert('file')">+File</button>
+      </div>
+      <div class="control">
+        <button class="button is-light is-small" (click)="insert('speak')" title="Make character talk">Speak</button>
+      </div>
+      <div class="control">
+        <button class="button is-light is-small" (click)="insert('cc')" title="Show a closed caption">CC</button>
+      </div>
+      <div class="control">
+        <button class="button is-light is-small" (click)="insert('narrate')" title="Show narration">Narrate</button>
+      </div>
+      <div class="control">
+        <button class="button is-warning is-small" (click)="insert('cover')" title="Show story cover image">Cover</button>
+      </div>
+      <div class="control">
+        <button class="button is-warning is-small" (click)="insert('bg')" title="Change background image">Backdrop</button>
+      </div>
+      <div class="control">
+        <button class="button is-warning is-small" (click)="insert('imgpop')" title="Show image popup(works on gif too!)">Popup</button>
+      </div>
+      <div class="control">
+        <button class="button is-primary is-small" (click)="insert('bgm')" title="Play/Remove a looping sound">BGM</button>
+      </div>
+      <div class="control">
+        <button class="button is-primary is-small" (click)="insert('soundclip')" title="Play sound file once">Soundclip</button>
+      </div>
+      <div class="control">
+        <button class="button is-primary is-small" (click)="insert('soundtext')" title="Show comic sound effects (BOOM!)">Sound Text</button>
+      </div>
+    </div>
+    <div class="control">
+      <textarea required 
+        #contentTextArea
+        style="font-size: 16px; font-family: 'Inconsolata';"
+        [class.is-success]="story.content"
+        class="textarea" placeholder="Now the hard part... write a cool story!" rows="14" 
+        [(ngModel)]="story.content"></textarea>
+    </div>
+  </div>
+</div>
