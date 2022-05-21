@@ -1,5 +1,22 @@
 [
   {
+    "id": "82750f1d-0a66-45a8-95cf-01c56c76c171",
+    "seriesId": "1",
+    "seriesName": "Ramen Street",
+    "title": "Ramen Street",
+    "subtitle": "Episode 1",
+    "description": "",
+    "cover": "https://i.pinimg.com/originals/f4/91/be/f491be409b7f2101b73bc44d84eca03f.jpg",
+    "author": "Z",
+    "content": "",
+    "casts": ["1672", "1783", "5487", "8271"],
+    "tags": ["adventure", "comedy"],
+    "likes": 0,
+    "createdOn": "Fri May 20 2022 12:20:07 PM",
+    "modifiedOn": "Sat May 21 2022 10:07:08 AM",
+    "state": "published"
+  },
+  {
     "id": "2029a23a-67c8-4e99-b0d8-2d7bf4560c35",
     "seriesId": "",
     "seriesName": "",
